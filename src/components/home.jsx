@@ -7,8 +7,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import {useState, useEffect} from "react";
-import isEmail from 'validator/lib/isEmail';
-import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {UserContext} from "../context/userContext";
@@ -20,12 +18,9 @@ export const Home = () => {
   const [nameError, setNameError] = useState(false);
   const [signError, setSignError] = useState(false);
   const [dayError, setDayError] = useState(false);
-  const [isValid, setIsValid] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [userData, setUserData] = useState([]);
   const [emailError, setEmailError] = useState(false);  
- 
-
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -33,52 +28,61 @@ export const Home = () => {
     day:"",
   })
 
-  const {userDetails, handleUser} = useContext(UserContext)
-
-  const handleInput = (e) => {
-    const {name,value} = e.target;
-   
-    setUser({...user,[name]:value});
-  } 
-
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setNameError(false);
-    setIsValid(false);
-    setEmailError(false); 
-    setSignError(false);
-    setDayError(false);
-    if(user.name == ""){
-      setNameError(true);
-    }
-    // if(isEmail(user.email)) {
-    //     setIsValid(true);   
-    //     setDirty(false)           
-    // } else {
-    //     setIsValid(false);  
+  // Use data from context 
+  const {handleUser} = useContext(UserContext)
 
-    // }
+
+  //handle form inputs..
+  const handleInput = (e) => {
+    const {name,value} = e.target;
+    setUser({...user,[name]:value});
+
+    //Validating Email Address
     if (validator.isEmail(user.email)) {
       setEmailError(true);
       setDirty(false)
     } else {
       setEmailError(false)
     }
-    if(user.sign == ""){
+  } 
+
+ 
+  // handling form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setNameError(false);
+    setEmailError(false); 
+    setSignError(false);
+    setDayError(false);
+
+ 
+    //Validating user inputs
+
+    if(user.name === ""){
+      setNameError(true);
+    }
+
+  
+
+    if(user.sign === ""){
       setSignError(true);
     }
-    if(user.day == ""){
+
+    if(user.day === ""){
       setDayError(true);
     }
+
     if(user.name && emailError && user.sign && user.day){
       setUserData(user)
       handleUser(user)
       navigate("/horo")
 
     }
-  } 
+  }
+  
+  
   return (
       <div className = {styles.background}>
           <h1 className = {styles.h1}>Horoscope App</h1>
@@ -114,6 +118,7 @@ export const Home = () => {
          error={dirty && emailError === false}  
          style ={{width: '100%'}}
          onChange = {handleInput}
+
          onBlur={() => setDirty(true)}
          required
          id="outlined-required"
@@ -125,13 +130,13 @@ export const Home = () => {
       </div>
       <div>
       <FormControl required style ={{width: '100%'}} sx={{ m: 1}}>
-        <InputLabel id="demo-simple-select-required-label">Horoscope</InputLabel>
+        <InputLabel id="demo-simple-select-required-label">Select Horoscope</InputLabel>
         
         <Select
           error = {signError}
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
-          label="Horoscope"
+          label="Select Horoscope"
           onChange={handleInput}
           name = "sign"
           value = {user.sign}
@@ -154,12 +159,12 @@ export const Home = () => {
       </div>
       <div>
       <FormControl required style ={{width: '100%'}} sx={{ m: 1}}>
-        <InputLabel id="demo-simple-select-required-label">Day</InputLabel>
+        <InputLabel id="demo-simple-select-required-label">Select Day</InputLabel>
         <Select
           error = {dayError}
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
-          label="Day"
+          label="Select Day"
           onChange={handleInput}
           name = "day"
           value = {user.day}

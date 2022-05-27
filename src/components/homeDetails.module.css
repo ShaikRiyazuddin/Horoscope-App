@@ -3,24 +3,23 @@ body, html {
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Nunito Sans', sans-serif;
     font-family: 'Tiro Kannada', serif;
-
   }
   
   .background {
-    /* background-image: url("https://cdn.pixabay.com/photo/2017/11/16/09/32/planet-2953871_960_720.png"); */
+    background-image: url("https://i.pinimg.com/originals/a2/60/02/a260029e5ff88befbb35897160fa9014.gif");
     /* background-image: url(../assets/wallpaperflare.com_wallpaper.jpg);*/
-    background-image: url(../assets/wallpaperflare.com_wallpaper\ \(2\).jpg);
+    /* background-image: url(../assets/wallpaperflare.com_wallpaper\ \(2\).jpg); */
     background-size: "cover";
-    height: 100vh;
+    height: 105vh;
     width: 100vw;
-    background-size: 105% 100%;
-    margin-top: -35px; 
+    background-size: 103% 100%;
+    margin-top: -34px; 
     background-repeat:no-repeat; 
   }
  .h1{
      color: white;
-      font-size: 50px;
-      padding-top: 25px;
+      font-size: 40px;
+      padding-top: 20px;
  }
  .box{
     width: 28vw;
@@ -29,10 +28,10 @@ body, html {
     border-radius: 7px;
     padding: 40px;
     margin-top:5vh;
-    box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
+    box-shadow: rgb(85, 82, 82) 0px 20px 30px -10px;
     z-index: 1;
     opacity:1.5;
-    background-color:rgb(249, 243, 212);
+    background-color:rgb(57, 63, 125);
     /* background-color: rgb(233, 244, 250); */
  }
  .textfield{
@@ -41,7 +40,7 @@ body, html {
  p{
     font-size: 20px;
     text-align: left;
-    color: black;
+    color: gold;
     padding-left: 10px;
     font-style: oblique;
  }
