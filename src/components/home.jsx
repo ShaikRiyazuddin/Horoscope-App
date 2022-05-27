@@ -12,6 +12,7 @@ import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {UserContext} from "../context/userContext";
+import validator from 'validator';
 
 
 
@@ -22,6 +23,7 @@ export const Home = () => {
   const [isValid, setIsValid] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [emailError, setEmailError] = useState(false);  
  
 
   const [user, setUser] = useState({
@@ -32,11 +34,10 @@ export const Home = () => {
   })
 
   const {userDetails, handleUser} = useContext(UserContext)
-  // console.log(userDetails)
 
   const handleInput = (e) => {
     const {name,value} = e.target;
- 
+   
     setUser({...user,[name]:value});
   } 
 
@@ -45,16 +46,25 @@ export const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setNameError(false);
-    setIsValid(false)
+    setIsValid(false);
+    setEmailError(false); 
     setSignError(false);
     setDayError(false);
     if(user.name == ""){
       setNameError(true);
     }
-    if(isEmail(user.email)) {
-        setIsValid(true);              
+    // if(isEmail(user.email)) {
+    //     setIsValid(true);   
+    //     setDirty(false)           
+    // } else {
+    //     setIsValid(false);  
+
+    // }
+    if (validator.isEmail(user.email)) {
+      setEmailError(true);
+      setDirty(false)
     } else {
-        setIsValid(false);              
+      setEmailError(false)
     }
     if(user.sign == ""){
       setSignError(true);
@@ -62,18 +72,13 @@ export const Home = () => {
     if(user.day == ""){
       setDayError(true);
     }
-    if(user.name && user.email && user.sign && user.day){
+    if(user.name && emailError && user.sign && user.day){
       setUserData(user)
       handleUser(user)
       navigate("/horo")
 
     }
-  }
-
-  const handleSubmitButton = () => {
-
-  }
-  // console.log(userData)
+  } 
   return (
       <div className = {styles.background}>
           <h1 className = {styles.h1}>Horoscope App</h1>
@@ -106,7 +111,7 @@ export const Home = () => {
       </div>
       <div>
         <TextField
-         error={dirty && isValid === false}  
+         error={dirty && emailError === false}  
          style ={{width: '100%'}}
          onChange = {handleInput}
          onBlur={() => setDirty(true)}
@@ -165,7 +170,7 @@ export const Home = () => {
         </Select>
       </FormControl>
       </div>
-      <Button onClick = {handleSubmitButton} style ={{width: '100%'}} sx={{ m: 1}} type  = "submit" variant = "contained">Submit</Button>
+      <Button  style ={{width: '100%'}} sx={{ m: 1}} type  = "submit" variant = "contained">Submit</Button>
     </Box>
       </div>
   )
