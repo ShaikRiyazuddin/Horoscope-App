@@ -34,8 +34,6 @@ export const HoroDetails = () => {
       let divideX = 2022 + "-" + x[0] + "-" + x[1];
 
       let divideY = 2022 + "-" + y[1] + "-" + y[2];
-
-      // console.log( divideY)
     
       let startDate = new Date(divideX);
       let endDate = new Date(divideY);
@@ -55,8 +53,7 @@ export const HoroDetails = () => {
       } 
     }  
 
-    // console.log(horoscopicData)  
-    // console.log(startDate,endDate);
+   
 
   return (
     <div  className = {styles.background}>
