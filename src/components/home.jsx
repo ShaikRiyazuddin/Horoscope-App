@@ -97,7 +97,7 @@ export const Home = () => {
           onSubmit = {handleSubmit}
           className = {styles.box}
         >
-        <p>Enter your details to know about your horoscope.</p>
+        <p className = {styles.p}>Enter your details to know about your horoscope.</p>
       <div>
         <TextField  
           style ={{width: '100%'}}

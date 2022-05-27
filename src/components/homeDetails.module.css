@@ -28,11 +28,12 @@ body, html {
     border-radius: 7px;
     padding: 40px;
     margin-top:5vh;
-    box-shadow: rgb(85, 82, 82) 0px 20px 30px -10px;
+    box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
     z-index: 1;
     opacity:1.5;
     background-color:rgb(57, 63, 125);
     /* background-color: rgb(233, 244, 250); */
+    color: gold;
  }
  .textfield{
    background-color:"red"
@@ -40,7 +41,6 @@ body, html {
  p{
     font-size: 20px;
     text-align: left;
-    color: gold;
     padding-left: 10px;
     font-style: oblique;
  }

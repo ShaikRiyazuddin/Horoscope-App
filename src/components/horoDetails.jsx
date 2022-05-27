@@ -5,24 +5,18 @@ import styles from "./homeDetails.module.css";
 import Box from '@mui/material/Box';
 
 export const HoroDetails = () => {
-  const [horscopicData, setHoroscopicData] = useState([]);
-
-   
-
-    // const startDate = dateRange[0];
-    // const endDate = dateRange[1];
-
+  const [horoscopicData, setHoroscopicData] = useState([]);
+  const [inDates, setInDates] = useState(false);
 
 
     const {userDetails} = useContext(UserContext);
-    // console.log(userDetails)
 
     const sign = userDetails.sign;
     const day = userDetails.day;
-    // console.log(sign,day);
 
     useEffect(() =>{
         fetchData();
+
     },[])
 
     const fetchData = () => {
@@ -30,25 +24,54 @@ export const HoroDetails = () => {
 
     }
 
+   
+    if(horoscopicData.length != 0){
+      let dummy = horoscopicData.date_range;
+      let dates = dummy.split("-");
+      let x = dates[0].split(" ");
+      let y = dates[1].split(" ");
+    
+      let divideX = 2022 + "-" + x[0] + "-" + x[1];
+
+      let divideY = 2022 + "-" + y[1] + "-" + y[2];
+
+      // console.log( divideY)
+    
+      let startDate = new Date(divideX);
+      let endDate = new Date(divideY);
 
 
+      let dateX = horoscopicData.current_date;
+
+      let date = new Date(dateX);
 
 
+      if (date > startDate && date < endDate) {
+        console.log('✅ date is between the 2 dates');
+        setInDates(true);
+      }
+      else {
+        console.log('⛔️ date is not in the range');
+      } 
+    }  
+
+    // console.log(horoscopicData)  
     // console.log(startDate,endDate);
 
   return (
-    <div className = {styles.background}>
-        <h1 className = {styles.h1}>Horoscope Details</h1>
+    <div  className = {styles.background}>
+        <h1 className =  {styles.h1}>Horoscope Details</h1>
         <Box className = {styles.box}>
           <p>Name : {userDetails.name}</p>
           <p>Email : {userDetails.email}</p>
           <p>Horoscopic Sign : {userDetails.sign}</p>
-          <p>Day : {horscopicData.current_date}</p>
-          <p>Color : {horscopicData.color}</p>
-          <p>Lucky Number : {horscopicData.lucky_number}</p>
-          <p>Lucky Time : {horscopicData.lucky_time}</p>
-          <p>Mood : {horscopicData.mood}</p>
-          <p>Description : {horscopicData.description}</p>
+          <p>Day : {horoscopicData.current_date}</p>
+          <p>Date Range : {horoscopicData.date_range}</p>
+          <p>Color : {horoscopicData.color}</p>
+          <p>Lucky Number : {horoscopicData.lucky_number}</p>
+          <p>Lucky Time : {horoscopicData.lucky_time}</p>
+          <p>Mood : {horoscopicData.mood}</p>
+          <p>Description : {horoscopicData.description}</p>
         </Box>
 
     </div>
