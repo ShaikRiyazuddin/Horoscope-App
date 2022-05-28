@@ -1,4 +1,4 @@
-import styles from  "./home.module.css";
+import styles from  "./styles/home.module.css";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';

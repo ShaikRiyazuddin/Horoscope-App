@@ -57,11 +57,77 @@ body, html {
   height: auto;
   margin: auto;
   border-radius: 7px;
-  padding: 30px;
+  padding: 25px;
   margin-top:5vh;
   box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
-  z-index: 1;
-  opacity:1.5;
   background-color:rgb(170, 214, 243);
   color: rgb(3, 6, 26);
  }
+
+
+
+ @media only screen and (max-width:480px){
+  .box{
+    width: 90vw;
+    height: auto;
+ }
+ .background {
+   background-image: url(../../assets/wallpaperflare.com_wallpaper\ 800px.jpg);
+  background-size: "cover";
+  height: 100vh;
+  width: 100vw;
+}
+.inBetweenBox{
+  width: 90vw;
+  height: auto;
+ }
+ .inBetween{
+  background-image: url(../../assets/480px.jpg);  
+ }
+}
+
+@media only screen and (max-width:720px){
+  .box{
+    width: 80vw;
+    height: auto;
+    margin: auto;
+    border-radius: 7px;
+    padding: 30px;
+    margin-top:5vh;
+    box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
+    z-index: 1;
+    opacity:1.5;
+    background-color:rgb(57, 63, 125);
+    color: gold;
+ }
+ .background {
+   /* background-color: white; */
+   background-image: url(../../assets/wallpaperflare.com_wallpaper\ 800px.jpg);
+  background-size: "cover";
+  height: 100vh;
+  width: 100vw;
+}
+.inBetweenBox{
+  width: 80vw;
+  height: auto;
+ }
+ .inBetween{
+  background-image: url(../../assets/480px.jpg);  
+ }
+}
+
+
+
+@media only screen and (max-width:1440px){
+  .box{
+    width: 80vw;
+    height: auto;
+ }
+ .inBetweenBox{
+  width: 80vw;
+  height: auto;
+ }
+ .inBetween{
+  background-image: url(../../assets/480px.jpg);  
+ }
+}

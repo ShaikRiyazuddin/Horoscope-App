@@ -1,13 +1,11 @@
 import {UserContext} from "../context/userContext";
 import {useContext, useState, useEffect} from "react";
 import axios from "axios";
-import styles from "./homeDetails.module.css";
+import styles from "./styles/homeDetails.module.css";
 import Box from '@mui/material/Box';
 
 export const HoroDetails = () => {
   const [horoscopicData, setHoroscopicData] = useState([]);
-  // const [inDates, setInDates] = useState(false);
-
 
     const {userDetails} = useContext(UserContext);
 
@@ -64,7 +62,6 @@ export const HoroDetails = () => {
             </Box>
           </div>
         )
-        //  setInDates(true);
       }
       else {
         console.log('⛔️ date is not in the range');
