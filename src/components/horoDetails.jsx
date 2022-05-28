@@ -23,15 +23,15 @@ export const HoroDetails = () => {
     }
 
    
-    if(horoscopicData.length != 0){
+    if(horoscopicData.length !== 0){
       let dummy = horoscopicData.date_range;
       let dates = dummy.split("-");
-      let x = dates[0].split(" ");
-      let y = dates[1].split(" ");
+      let startDateModify = dates[0].split(" ");
+      let endDateModify = dates[1].split(" ");
     
-      let divideX = 2022 + "-" + x[0] + "-" + x[1];
+      let divideX = 2022 + "-" + startDateModify[0] + "-" + startDateModify[1];
 
-      let divideY = 2022 + "-" + y[1] + "-" + y[2];
+      let divideY = 2022 + "-" + endDateModify[1] + "-" + endDateModify[2];
     
       let startDate = new Date(divideX);
       let endDate = new Date(divideY);

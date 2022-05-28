@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import {UserContext} from "../context/userContext";
@@ -39,6 +39,7 @@ export const Home = () => {
     const {name,value} = e.target;
     setUser({...user,[name]:value});
 
+    
     //Validating Email Address
     if (validator.isEmail(user.email)) {
       setEmailError(true);
