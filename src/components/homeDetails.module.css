@@ -7,8 +7,6 @@ body, html {
   
   .background {
     background-image: url("https://i.pinimg.com/originals/a2/60/02/a260029e5ff88befbb35897160fa9014.gif");
-    /* background-image: url(../assets/wallpaperflare.com_wallpaper.jpg);*/
-    /* background-image: url(../assets/wallpaperflare.com_wallpaper\ \(2\).jpg); */
     background-size: "cover";
     height: 105vh;
     width: 100vw;
@@ -17,22 +15,23 @@ body, html {
     background-repeat:no-repeat; 
   }
  .h1{
-     color: white;
+     color: gold;
       font-size: 40px;
-      padding-top: 20px;
+      padding-top: 10px;
+      margin-bottom: -30px;
+      text-decoration: underline;
  }
  .box{
     width: 28vw;
     height: auto;
     margin: auto;
     border-radius: 7px;
-    padding: 40px;
+    padding: 30px;
     margin-top:5vh;
     box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
     z-index: 1;
     opacity:1.5;
     background-color:rgb(57, 63, 125);
-    /* background-color: rgb(233, 244, 250); */
     color: gold;
  }
  .textfield{
@@ -43,4 +42,26 @@ body, html {
     text-align: left;
     padding-left: 10px;
     font-style: oblique;
+ }
+ .inBetween{
+  background-image: url("https://www.deccanherald.com/sites/dh/files/articleimages/2020/11/04/istock-1193346794-911041-1604462196.jpg");
+  background-size: "cover";
+  height: 105vh;
+  width: 100vw;
+  background-size: 100% 100%;
+  margin-top: -34px; 
+  background-repeat:no-repeat; 
+ }
+ .inBetweenBox{
+  width: 28vw;
+  height: auto;
+  margin: auto;
+  border-radius: 7px;
+  padding: 30px;
+  margin-top:5vh;
+  box-shadow: rgb(57, 41, 41) 0px 20px 30px -10px;
+  z-index: 1;
+  opacity:1.5;
+  background-color:rgb(170, 214, 243);
+  color: rgb(3, 6, 26);
  }

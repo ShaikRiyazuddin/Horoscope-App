@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 
 export const HoroDetails = () => {
   const [horoscopicData, setHoroscopicData] = useState([]);
-  const [inDates, setInDates] = useState(false);
+  // const [inDates, setInDates] = useState(false);
 
 
     const {userDetails} = useContext(UserContext);
@@ -46,15 +46,32 @@ export const HoroDetails = () => {
 
       if (date > startDate && date < endDate) {
         console.log('✅ date is between the 2 dates');
-        setInDates(true);
+       
+        return(
+          <div className = {styles.inBetween}>
+            <h2 className =  {styles.h1}>Horoscope Details (Date lies in bewtween range)</h2>
+            <Box className = {styles.inBetweenBox}>
+              <p>Name : {userDetails.name}</p>
+              <p>Email : {userDetails.email}</p>
+              <p>Horoscopic Sign : {userDetails.sign}</p>
+              <p>Day : {horoscopicData.current_date}</p>
+              <p>Date Range : {horoscopicData.date_range}</p>
+              <p>Color : {horoscopicData.color}</p>
+              <p>Lucky Number : {horoscopicData.lucky_number}</p>
+              <p>Lucky Time : {horoscopicData.lucky_time}</p>
+              <p>Mood : {horoscopicData.mood}</p>
+              <p>Description : {horoscopicData.description}</p>
+            </Box>
+          </div>
+        )
+        //  setInDates(true);
       }
       else {
         console.log('⛔️ date is not in the range');
       } 
     }  
 
-   
-
+  
   return (
     <div  className = {styles.background}>
         <h1 className =  {styles.h1}>Horoscope Details</h1>
