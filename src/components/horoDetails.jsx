@@ -47,7 +47,7 @@ export const HoroDetails = () => {
        
         return(
           <div className = {styles.inBetween}>
-            <h2 className =  {styles.h1}>Horoscope Details (Date lies in bewtween range)</h2>
+            <h2 className =  {styles.h1}>Horoscope Details (Date lies in between range)</h2>
             <Box className = {styles.inBetweenBox}>
               <p>Name : {userDetails.name}</p>
               <p>Email : {userDetails.email}</p>
